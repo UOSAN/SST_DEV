@@ -1,0 +1,27 @@
+Training Session Data Issue Notes:
+
+011 - training session 7 appears to have been run as T6. Unknown which previous .mat file was used to run T7. stimOrderLog_st11b6 is identical to stimOrderLog_st11b7
+
+034 - there were two Training 6's (6/23 and 6/25) and no Training 7. Renamed the second T6 (6/25) as T7. There is no stopsig.log for T7.
+
+038 - There is no stimOrderLog.mat , stimOrderLog.txt , or stopsig.log for training session 7. There is, however, a train7.mat ... unknown what happened to the other files as they are not on the computer where the participant was run, nor backed-up to dropbox.
+
+060 GNG1 was run as GNG3. Changed output file name, but GNG1 is still labeled GNG3 in the files themselves.
+
+062 only completed 9 training sessions
+
+077 missing T2.log
+
+078 missing T4 .log
+
+102 missing T2 .log
+
+108 missing T2 .log
+
+114 missing T3 .log
+
+117 missing T2 .log
+
+121 missing T10 .log
+
+130 missing T4 .log
