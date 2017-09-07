@@ -3,13 +3,13 @@ title: 'REV Behavioral Data Analysis: SST'
 author: "Krista DeStasio"
 date: "4/26/2017"
 output:
-  pdf_document:
-    toc: yes
-    toc_depth: '3'
   html_document:
     toc: yes
     toc_depth: 3
     toc_float: yes
+  pdf_document:
+    toc: yes
+    toc_depth: '3'
 ---
 
 ```{r setup, include=FALSE}
@@ -27,7 +27,17 @@ knitr::opts_chunk$set(fig.width=12, fig.height=8, fig.path='Figs/', echo=FALSE, 
 
 ### Key:
 
-Stop-signal task components:  
+**Key to variables in the screen_data data frame:**
+
+- Gender: Male = 1, Female = 2  
+- Use alcohol: 1 = yes, 2 = no  
+- Make tobacco a factor 1 = yes, 2 = no  
+- Self-control trouble with drugs: 1 = no, NA with score in subcategory = yes  
+- Self-control trouble with food: 1 = no, NA with score in subcategory = yes  
+
+
+**Key to Stop-signal task components:**  
+
 **SSD** -- Stop-signal delay -- _Time from go stimulus to stop signal_  
 **RT** -- Reaction time -- _Time from go stimulus to button press_  
 **SSRT** -- Stop-signal response time -- _SSRT = (nth RT - mean SSD)_    
@@ -97,15 +107,15 @@ screen_data[574, 14] = '0854'
 screen_data <- screen_data[-c(86, 198, 296, 514), ] # 0087, 0246, 0412, 0615
 ```
 
-```{r Clean phone screening data}
+```{r Clean phone screening data, include=FALSE}
 # Subset the screening data. Drop unneeded columns
-screen_data <- dplyr::select(screen_data, scoreSum:enroll, -(contains('ineligible')), -(contains('instruct')), -(contains('Weight')), -(eligible))
+screen_data <- dplyr::select(screen_data, scoreSum:enroll, -(contains('ineligible')), -(contains('instruct')), -(contains('Weight')), -(eligible), -(scoreSum))
 
 # Pad the screening IDs with zeros to length four. Missing IDs will become 0000, improperly entered IDs will be corrected (e.g. 90 becomes 0090)
 screen_data$ID <- withr::with_options(c(scipen = 999), str_pad(screen_data$ID, 4, pad = "0"))
 
 # Screening IDs of participants who were assigned a study ID
-screen_ID <- c('0014', '0016', '0028', '0004', '0012', '0030', '0033', '0011', '0034', '0119', '0139', '0042', '0060', '0041', '0149', '0156', '0083', '0088', '0092', '0115', '0099', '0194', '0130', '0055', '0198', '0183', '0166', '0142', '0180', '0177', '0191', '0218', '0220', '0224', '0246', '0223', '0255', '0286', '0291', '0263', '0261', '0452', '0276', '0280', '0257', '0362', '0243', '0396', '0349', '0265', '0326', '0420', '0329', '0328', '0301', '0338', '0365', '0345', '0357', '0459', '0247', '0421', '0353', '0376', '0381', '0378', '0454', '0380', '0400', '0506', '0479', '0488', '0412', '0515', '0505', '0583', '0493', '0489', '0524', '0513', '0527', '0526', '0540', '0582', '0553', '0638', '0575', '0615', '0596', '0560', '0721', '0610', '0679', '0682', '0686', '0660', '0693', '0087', '0687', '0685', '0661', '0664', '0740', '0749', '0698', '0944', '0735', '0746', '0757', '0826', '0783', '0995', '0779', '0774', '0943', '0802', '0765', '0809', '0797', '0816', '0819', '0868', '0974', '0823', '0837', '0848', '0830', '0854', '1005', '0873', '0967', '0890', '0916', '1013', '0972', '0923', '0983', '0986', '0952', '0985', '1001', '1042', NA, '1002')
+screen_ID <- c('0014', '0016', '0028', '0004', '0012', '0030', '0033', '0011', '0034', '0119', '0139', '0142', '0060', '0041', '0149', '0156', '0083', '0088', '0092', '0115', '0099', '0194', '0130', '0055', '0198', '0183', '0166', '0165', '0180', '0177', '0191', '0218', '0220', '0224', '0246', '0223', '0255', '0286', '0291', '0263', '0261', '0452', '0276', '0280', '0257', '0362', '0243', '0396', '0349', '0265', '0326', '0420', '0329', '0328', '0301', '0338', '0365', '0345', '0357', '0459', '0247', '0421', '0353', '0376', '0381', '0378', '0454', '0380', '0400', '0506', '0479', '0488', '0412', '0515', '0505', '0583', '0493', '0489', '0524', '0513', '0527', '0526', '0540', '0582', '0553', '0638', '0575', '0615', '0596', '0560', '0721', '0610', '0679', '0682', '0686', '0660', '0693', '0087', '0687', '0685', '0661', '0664', '0740', '0749', '0698', '0944', '0735', '0746', '0757', '0826', '0783', '0995', '0779', '0774', '0943', '0802', '0765', '0809', '0797', '0816', '0819', '0868', '0974', '0823', '0837', '0848', '0830', '0854', '1005', '0873', '0967', '0890', '0916', '1013', '0972', '0923', '0983', '0986', '0952', '0985', '1001', '1042', NA, '1002')
 
 # See which IDs are missing from screen_data (used to correct the IDs, should have no mismatches now since IDs corrected)
 missing_IDs <- screen_ID[!screen_ID %in% screen_data$ID]
@@ -340,9 +350,15 @@ survey_data <- dplyr::select(survey_data, -(completed.study.y), -(gender.y:hispa
 ```
 
 # Participant Demographics (N = 143, Final N = 102)
+
+```{r Screening data descriptives}
+kable(as.matrix(psych::describe(screen_data$earlyAdverse)), caption = "Early Adverse Events of Enrolled Participants")
+#colnames(screen_data)
+```
+
 ```{r Qualtrics demographics}
 # Sample size
-kable(as.matrix(table(survey_data$completed_study)), caption = "Number of Participants Who Completed the Study (or not)")
+kable(as.matrix(table(survey_data$completed_study)), caption = "Completed the Study?")
 
 # Get age
 kable(as.matrix(psych::describe(survey_data$age)), caption = "Ages, All Participants")
@@ -375,11 +391,6 @@ kable(as.matrix(psych::describe(subset(survey_data, completed_study=='yes', sele
 ggplot(data = survey_data) + 
   geom_bar(mapping = aes(x = subcategories, fill = completed_study)) +
     ggtitle("Participant Attrition by Number of Sub-categories")
-```
-
-```{r Screening data descriptives}
-kable(as.matrix(psych::describe(screen_data$earlyAdverse)), caption = "Early Adverse Events of Enrolled Participants")
-colnames(screen_data)
 ```
 
 ```{r Put all data frames in long form}
