@@ -14,7 +14,7 @@ output:
 
 ```{r setup, include=FALSE}
 rm(list=ls())
-setwd("~/Desktop/REV/REV_SST/scripts/analyses/")
+setwd("~/Desktop/REV_scripts/behavioral/REV_SST/scripts/analyses/")
 
 ## Install and load required packages
 list.of.packages <- c("stringr", "tidyverse", "reshape2", "ggplot2", "psych", "gridExtra", "knitr", "lme4", "memisc", "withr")
@@ -50,24 +50,24 @@ condition <- factor(condition, labels=c("control", "train"))
 ```{r Import task data}
 ## Import the SSRT results output from the extractAllSSTResults.m script
 SSRTdata <- read.table(
-  "~/Desktop/REV/REV_SST/compiledResults/upToREV144/singleVarTxts/REV_SSRTint16.txt",
+  "~/Desktop/REV_scripts/behavioral/REV_SST/compiledResults/upToREV144/singleVarTxts/REV_SSRTint16.txt",
   sep="\t", header=FALSE)
 ## No Response Counts
 noResponseCount <- read.table(
-  "~/Desktop/REV/REV_SST/compiledResults/upToREV144/initialCheck/NRCount.txt",
+  "~/Desktop/REV_scripts/behavioral/REV_SST/compiledResults/upToREV144/initialCheck/NRCount.txt",
   sep="\t", header=FALSE)
 ## Wrong Go Counts
 wrongGoCount <- read.table(
-  "~/Desktop/REV/REV_SST/compiledResults/upToREV144/initialCheck/wrongGoCount.txt",
+  "~/Desktop/REV_scripts/behavioral/REV_SST/compiledResults/upToREV144/initialCheck/wrongGoCount.txt",
   sep="\t", header=FALSE)
 ## Percent inhibition
 pctInhibition <- read.table(
-  "~/Desktop/REV/REV_SST/compiledResults/upToREV144/singleVarTxts/REV_PctInhib16.txt",
+  "~/Desktop/REV_scripts/behavioral/REV_SST/compiledResults/upToREV144/singleVarTxts/REV_PctInhib16.txt",
   sep="\t", header=FALSE)
 ```
 
 ```{r Import qualtrics data}
-categories <- as.data.frame(read.table("~/Desktop/REV/REV_SST/info/participantCategories.txt"))
+categories <- as.data.frame(read.table("~/Desktop/REV_scripts/behavioral/REV_SST/info/participantCategories.txt"))
 colnames(categories) <- c("ID", "completed.study", "num.categories", "food", "alcohol", "tobacco", "drugs")
 categories <- categories[2:145,]
 
