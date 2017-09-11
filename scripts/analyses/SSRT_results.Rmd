@@ -3,13 +3,13 @@ title: 'REV Behavioral Data Analysis: SST'
 author: "Krista DeStasio"
 date: "4/26/2017"
 output:
+  pdf_document:
+    toc: yes
+    toc_depth: '3'
   html_document:
     toc: yes
     toc_depth: 3
     toc_float: yes
-  pdf_document:
-    toc: yes
-    toc_depth: '3'
 ---
 
 ```{r setup, include=FALSE}
@@ -124,7 +124,7 @@ missing_IDs <- screen_ID[!screen_ID %in% screen_data$ID]
 screen_data <- screen_data[screen_data$ID %in% screen_ID, ]
 
 screen_data$ID <- as.factor(screen_data$ID)
-table(screen_data$ID)
+#table(screen_data$ID)
 ```
 
 ```{r Clean base survey data}
