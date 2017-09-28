@@ -3,13 +3,13 @@ title: 'REV Behavioral Data Analysis: SST'
 author: "Krista DeStasio"
 date: "4/26/2017"
 output:
-  pdf_document:
-    toc: yes
-    toc_depth: '3'
   html_document:
     toc: yes
     toc_depth: 3
     toc_float: yes
+  pdf_document:
+    toc: yes
+    toc_depth: '3'
 ---
 
 ```{r setup, include=FALSE}
@@ -82,13 +82,13 @@ colnames(categories) <- c("ID", "completed.study", "num.categories", "food", "al
 categories <- categories[2:145,]
 
 # General survey
-gen_survey <- as.data.frame(as.data.set(spss.system.file('~/Dropbox/Reversibility_kdrop/questionnaire data/FromQualtrics/REV_General_Survey.sav')))
+gen_survey <- as.data.frame(as.data.set(spss.system.file('~/Dropbox/REV/questionnaire data/FromQualtrics/REV_General_Survey.sav')))
 
 # Baseline survey
-base_survey <- as.data.frame(as.data.set(spss.system.file('~/Dropbox/Reversibility_kdrop/questionnaire data/FromQualtrics/REV_Baseline_Survey.sav')))
+base_survey <- as.data.frame(as.data.set(spss.system.file('~/Dropbox/REV/questionnaire data/FromQualtrics/REV_Baseline_Survey.sav')))
 
 # Screening data
-screen_data <- as.data.frame(read.csv('~/Dropbox/Reversibility_kdrop/questionnaire data/FromQualtrics/rev_screening.csv', stringsAsFactors = FALSE, skip = 1))
+screen_data <- as.data.frame(read.csv('~/Dropbox/REV/questionnaire data/FromQualtrics/rev_screening.csv', stringsAsFactors = FALSE, skip = 1))
 ```
 
 ```{r Screening data column names}
@@ -764,6 +764,46 @@ ggplot(SSRT.df.prepost, aes(x= time, y= avgd_SSRT, fill=condition)) +
     scale_fill_discrete(name="Condition",
                          breaks=c("control", "train"),
                          labels=c("Control", "Training"))
+```
+
+```{r Bar plot of pre-post change in SSRT}
+# calculate the means to plot
+groups <- group_by(SSRT.df.prepost, condition, time)
+plot.data <- dplyr::summarise(groups, 
+                       mean = mean(avgd_SSRT, na.rm = TRUE),
+                       sd = sd(avgd_SSRT, na.rm = TRUE),
+                       n = n())
+plot.data <- mutate(plot.data,
+                    se=sd/sqrt(n),
+                    ci = qt(0.975,df=n-1)*se)
+
+# Re-level and rename the condition factor for plotting
+plot.data$condition <- factor(plot.data$condition, levels(plot.data$condition)[c(2,1)])
+plot.data$condition <- plyr::revalue(plot.data$condition, c("train" = "Training", "control" = "Control"))
+
+# Bar graph of pre-post change by condition with standard error bars.
+
+ggplot(plot.data, aes(x=condition, y=mean, fill=time)) +
+   geom_bar(stat = "identity", position = position_dodge(), color = "black", size = .3)+
+  geom_errorbar(aes(ymin=mean-ci, ymax=mean+ci), 
+                size=.8,
+                width=.2,
+                position = position_dodge(.9)) +
+    xlab("Condition") +
+    ylab("SSRT (ms)") +
+    scale_fill_hue(name="Time point", 
+               labels=c("Baseline", "Endpoint")) +
+  ggtitle("Mean Stop-Signal Reaction Time at Pre and Post Intervention by Condition") +
+    coord_cartesian(ylim=c(200,300))  +
+    scale_y_continuous(breaks=seq(200, 300, 10)) +
+    theme(axis.text=element_text(size=18),
+        axis.title=element_text(size=20,face="bold"),
+        legend.title = element_text(face = "bold", size = 24),
+        legend.position = c(.95, .95),
+        legend.justification = c("right", "top"),
+        legend.key.size = unit(.5, "cm"),
+        legend.text = element_text(size = 18),
+        title = element_text(size = 18))
 ```
 
 ```{r Boxplots of SST performance across time}
