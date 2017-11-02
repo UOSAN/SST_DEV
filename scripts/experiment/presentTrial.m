@@ -1,4 +1,4 @@
-function [Pos Seeker FLAG_FASTER] = presentTrial(Pos,Seeker,FLAG_FASTER,colorFlags,MRI,block,a,b,postjitter,imagetex,w,standardImHeight,standardImArea,oval2imRatio,ArrowSize,ArrowPosX,ArrowPosY,arrow_duration,anchor,inputDevice,pahandle,wave,fid)
+function [Pos Seeker FLAG_FASTER] = presentTrial(Pos,Seeker,FLAG_FASTER,colorFlags,MRI,block,a,b,postjitter,imagetex,w,standardImHeight,standardImArea,oval2imRatio,arrow_duration,anchor,inputDevice,pahandle,wave,fid,L_arrow_tex,R_arrow_tex)
 % updated 1-8-15 to standardize area instead of height
 
 tc=(block-1)*8*16+(a-1)*16+b;
@@ -56,9 +56,11 @@ if Seeker(Pos,3)~=2, % ie this is not a NULL event
     Screen('TextSize',w,ArrowSize);
     Screen('TextFont',w,'Arial');
     if (Seeker(Pos,4)==0),
-        Screen('DrawText',w,'<', ArrowPosX, ArrowPosY);
+        Screen('DrawTexture',w,L_arrow_tex)
+        %         Screen('DrawText',w,'<', ArrowPosX, ArrowPosY);
     else,
-        Screen('DrawText',w,'>', ArrowPosX+10, ArrowPosY);
+        Screen('DrawTexture',w,R_arrow_tex)
+        %         Screen('DrawText',w,'>', ArrowPosX+10, ArrowPosY);
     end;
     noresp=1;
     notone=1;

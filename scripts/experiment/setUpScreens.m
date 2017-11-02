@@ -1,4 +1,4 @@
-function [w ArrowSize ArrowPosX ArrowPosY xcenter ycenter] = setUpScreens()
+function [w xcenter ycenter L_arrow_tex R_arrow_tex] = setUpScreens()
 
 Screen('Preference','SkipSyncTests',1);
 fprintf('setting up screen\n');
@@ -9,6 +9,7 @@ w=Screen('OpenWindow', screenNumber,0,[],32,2);
 grayLevel=120;
 Screen('FillRect', w, grayLevel);
 Screen('Flip', w);
+Screen('BlendFunction',w,'GL_SRC_ALPHA','GL_ONE_MINUS_SRC_ALPHA'); % allows transparency values to take effect
 
 black=BlackIndex(w); % Should equal 0.
 white=WhiteIndex(w); % Should equal 255.
@@ -21,11 +22,13 @@ Screen('TextSize',w,36);
 Screen('TextFont',w,theFont);
 Screen('TextColor',w,white);
 
-ArrowSize=150;
-ArrowPosX=xcenter-48;
-ArrowPosY=ycenter-86;
-% CircleSize=150;
-% CirclePosX=xcenter-CircleSize/2;
-% CirclePosY=ycenter-CircleSize/2;
+% Create textures for arrows to be drawn in each trial
+[L_arrow, ~, alphaL] = imread('L_arrow.png');
+L_arrow(:,:,4)=alphaL;
+L_arrow_tex = Screen('MakeTexture',w,L_arrow);
+
+[R_arrow, ~, alphaR] = imread('R_arrow.png');
+R_arrow(:,:,4)=alphaR;
+R_arrow_tex = Screen('MakeTexture',w,R_arrow);
 
 HideCursor;
