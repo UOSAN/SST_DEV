@@ -5,8 +5,8 @@ tc=(block-1)*8*16+(a-1)*16+b;
 trialnum=floor((tc+1)/2);
 OCI=0.5 + postjitter(trialnum);
 
-red=[255,0,0];
-orange=[255,128,0];
+red=[255,0,0,255];
+orange=[255,128,0,255];
 grey=[120 120 120];
 white = [255 255 255];
 black = [0 0 0];
@@ -14,7 +14,6 @@ flagThickness=5;
 highThresh = .750;
 lowThresh = .500;
 giantFrameThickness=95;
-ovalOutline = 0;
 
 if FLAG_FASTER==2
     ovalColor = red;  %red [255,0,0,255]
@@ -41,12 +40,10 @@ if Seeker(Pos,3)~=2, % ie this is not a NULL event
     Screen('DrawTexture',w,imagetex(trialnum),[],imrect);
     if ovalOutline
         Screen('FrameOval',w,black,CenterRect(imDims*oval2imRatio,Screen('Rect',w)),giantFrameThickness+flagThickness+2);
-        Screen('FrameOval',w,ovalColor,CenterRect(imDims*oval2imRatio,Screen('Rect',w)),giantFrameThickness+flagThickness);
-        Screen('FrameOval',w,black,CenterRect(imDims*oval2imRatio,Screen('Rect',w)),giantFrameThickness);
-        Screen('FrameOval',w,grey,CenterRect(imDims*oval2imRatio,Screen('Rect',w)),giantFrameThickness-2);
     end
     Screen('FrameOval',w,ovalColor,CenterRect(imDims*oval2imRatio,Screen('Rect',w)),giantFrameThickness+flagThickness);
-    Screen('FrameOval',w,grey,CenterRect(imDims*oval2imRatio,Screen('Rect',w)),giantFrameThickness);
+    Screen('FrameOval',w,black,CenterRect(imDims*oval2imRatio,Screen('Rect',w)),giantFrameThickness);
+    Screen('FrameOval',w,grey,CenterRect(imDims*oval2imRatio,Screen('Rect',w)),giantFrameThickness-2);
     
     while GetSecs - anchor < Seeker(Pos,16),
     end; %waits to synch beginning of trial with 'true' start
@@ -59,19 +56,17 @@ end;
 
 if Seeker(Pos,3)~=2, % ie this is not a NULL event
     Screen('DrawTexture',w,imagetex(trialnum),[],imrect);
-    if ovalOutline
-        Screen('FrameOval',w,black,CenterRect(imDims*oval2imRatio,Screen('Rect',w)),giantFrameThickness+flagThickness+2);
-        Screen('FrameOval',w,ovalColor,CenterRect(imDims*oval2imRatio,Screen('Rect',w)),giantFrameThickness+flagThickness);
-        Screen('FrameOval',w,black,CenterRect(imDims*oval2imRatio,Screen('Rect',w)),giantFrameThickness);
-        Screen('FrameOval',w,grey,CenterRect(imDims*oval2imRatio,Screen('Rect',w)),giantFrameThickness-2);
-    end
+    Screen('FrameOval',w,black,CenterRect(imDims*oval2imRatio,Screen('Rect',w)),giantFrameThickness+flagThickness+2);
     Screen('FrameOval',w,ovalColor,CenterRect(imDims*oval2imRatio,Screen('Rect',w)),giantFrameThickness+flagThickness);
-    Screen('FrameOval',w,grey,CenterRect(imDims*oval2imRatio,Screen('Rect',w)),giantFrameThickness);
+    Screen('FrameOval',w,black,CenterRect(imDims*oval2imRatio,Screen('Rect',w)),giantFrameThickness);
+    Screen('FrameOval',w,grey,CenterRect(imDims*oval2imRatio,Screen('Rect',w)),giantFrameThickness-2);
     
     if (Seeker(Pos,4)==0),
-        Screen('DrawTexture',w,L_arrow_tex(FLAG_FASTER+1))
+        Screen('DrawTexture',w,L_arrow_tex)
+        %         Screen('DrawText',w,'<', ArrowPosX, ArrowPosY);
     else,
-        Screen('DrawTexture',w,R_arrow_tex(FLAG_FASTER+1))
+        Screen('DrawTexture',w,R_arrow_tex)
+        %         Screen('DrawText',w,'>', ArrowPosX+10, ArrowPosY);
     end;
     noresp=1;
     notone=1;
