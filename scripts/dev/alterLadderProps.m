@@ -1,47 +1,50 @@
-cd('/Users/laurenkahn/Desktop/interSSTriskCue/scripts/ladderFiles/RiskNeut_2814')
-numChunks = [18 9];
-sizeChunks = [7 14];
-numSubs = 60;
-% numSubs = 60;
-numRuns = 10;
+cd('~/Desktop/SST_DEV/input/ladderFiles/')
+numChunks = 16;
+sizeChunks = 8;
+startSub = 60;
+endSub = 60;
+numRuns = 5;
 
-for s = 2:numSubs
+% [H, U]
+numStops = [26, 6];
+numGos = [38, 58];
+
+% unhealthy: 64 trials
+% 26 stop, 38 go
+% 41% stop, 59% go
+
+% healthy: 64 trials
+% 6 stop, 58 go
+% 9% stop, 91% go
+
+for s = startSub:endSub
     for r = 1:numRuns
         
-        chunk = cell(2,18);
-        ladder = cell(2,18);
-        eventMat = cell(1,2);
-        concatChunks = cell(1,2);
-        load(['dub_st' num2str(s) 'b' num2str(r) '.mat']);
+        load(['s' num2str(s) 'r' num2str(r) '.mat']);
         
-        for t = 1:2
-            concatChunks{t} = [];
-            concatLadders{t} = [];
-            
-            for ch = 1:numChunks(t)
-                chunk{t,ch} = [ones(1,2) zeros(1,sizeChunks(t)-2)];
-                chunk{t,ch} = Shuffle(chunk{t,ch});
-                concatChunks{t} = [concatChunks{t} chunk{t,ch}];
-                
-                ladder{t,ch} = [1 2];
-                ladder{t,ch} = Shuffle(ladder{t,ch});
-                concatLadders{t} = [concatLadders{t} ladder{t,ch}];
-            end
-            
-            trialcode{t}(253:256,:)=[];
-            %%% MAKE MATRIX
-            trialInd = [1:2:251];
-            
-            trialcode{t}(trialInd,1) = (concatChunks{t})'; %trial type
-            isGo = trialcode{t}(:,1)==0;
-            isStop = trialcode{t}(:,1)==1;
-            trialcode{t}(isStop,5) = (concatLadders{t})'; %ladder type
-            
-        end
-
+        % get indices for go & stop trials
+        trialType = trialcode(:,1);
+        isStop = trialType==1;
+        isGo = trialType==0;
         
+        % healty=0, unhealthy=1
+        stopTypes = [zeros(numStops(1),1); ones(numStops(2),1)];
+        goTypes = [zeros(numGos(1),1); ones(numGos(2),1)];
+        
+        rng('default')
+        rng('shuffle')
+        stopTypes = Shuffle(stopTypes);
+        rng('shuffle')
+        goTypes = Shuffle(goTypes);
+        
+        % Make 6th column that denotes H vs U
+        trialcode(isStop,6) = stopTypes;
+        trialcode(isGo,6) = goTypes;
+        
+        UvH = trialcode(:,6);
+        save(['s' num2str(s) 'r' num2str(r) '_UvH.mat'],'trialcode');
         %%% save as ladder file
-        save(['dub_st' num2str(s) 'b' num2str(r) '.mat'],'trialcode');
+        save(['s' num2str(s) 'r' num2str(r) '_altProps.mat'],'trialcode');
         
     end
 end

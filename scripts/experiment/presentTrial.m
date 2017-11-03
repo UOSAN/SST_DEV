@@ -1,6 +1,5 @@
 function [Pos Seeker FLAG_FASTER] = presentTrial(Pos,Seeker,FLAG_FASTER,colorFlags,MRI,block,a,b,postjitter,imagetex,w,standardImHeight,standardImArea,oval2imRatio,arrow_duration,anchor,inputDevice,pahandle,wave,fid,L_arrow_tex,R_arrow_tex)
 % updated 1-8-15 to standardize area instead of height
-
 tc=(block-1)*8*16+(a-1)*16+b;
 trialnum=floor((tc+1)/2);
 OCI=0.5 + postjitter(trialnum);

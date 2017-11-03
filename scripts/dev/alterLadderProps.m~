@@ -1,0 +1,53 @@
+cd('~/Desktop/SST_DEV/input/ladderFiles/')
+numChunks = 16;
+sizeChunks = 8;
+numSubs = 1;
+numRuns = 5;
+
+% [H, U]
+numGos = [26, 6];
+numStops = [38, 58];
+
+% numSubs = 59;
+% numRuns = 5;
+
+% unhealthy: 64 trials
+% 26 stop, 38 go
+% 41% stop, 59% go
+
+% healthy: 64 trials
+% 6 stop, 58 go
+% 9% stop, 91% go
+
+for s = 1:numSubs
+    for r = 1:numRuns
+        
+        load(['s' num2str(s) 'r' num2str(r) '.mat']);
+        
+        % get indices for go & stop trials
+        trialType = trialcode(:,1);
+        isStop = trialType==1;
+        isGo = trialType==2;
+        
+        % healty=0, unhealthy=1
+        stopTypes = [zeros(numStops(1),1); ones(numStops(2),1)];
+        goTypes = [zeros(numGos(1),1); ones(numGos(2),1)];
+        
+        rng('shuffle')
+        stopTypes = Shuffle(stopTypes);
+        rng('shuffle')
+        goTypes = Shuffle(goTypes);
+        
+        % Make 6th column that denotes H vs U
+        trialcode(isStop,6) = stopTypes;
+        trialcode(isGo,6) = goTypes;
+        
+        
+        %%% save as ladder file
+        save(['s' num2str(s) 'r' num2str(r) '.mat'],'trialcode');
+        
+    end
+end
+
+
+
