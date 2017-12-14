@@ -1,8 +1,8 @@
 cd('~/Desktop/SST_DEV/input/ladderFiles/')
 numChunks = 16;
 sizeChunks = 8;
-startSub = 60;
-endSub = 60;
+startSub = 1;
+endSub = 119;
 numRuns = 5;
 
 % [H, U]
