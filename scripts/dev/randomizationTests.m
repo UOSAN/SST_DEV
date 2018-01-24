@@ -68,4 +68,11 @@ a=[a; randperm(3)]
 a=[a; randperm(3)]
 a=[a; randperm(3)]
 
+% What happens if you do different perm #s?
+rng('default')
+rng('shuffle')
+a=randperm(3)
+a=randperm(3)
+a=randperm(5)
+a=randperm(5)
 
