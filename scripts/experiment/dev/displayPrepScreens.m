@@ -1,9 +1,10 @@
-% updated 3-24-15 to include exptCond variable for control vs. experimental
-% group
-
 function [] = displayPrepScreens(sub_session,w,MRI,xcenter,ycenter)
 % startstring = sprintf('Get ready for scan number %d!',sub_session);
 % Screen('DrawText',w,startstring,100,100);
+
+% updated 3-24-15 to include exptCond variable for control vs. experimental
+% group
+
 if MRI==1,
     Screen('DrawText',w,'Waiting for trigger...',xcenter-150,ycenter);
     Screen('Flip',w);

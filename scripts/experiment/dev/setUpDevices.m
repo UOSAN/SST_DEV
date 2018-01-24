@@ -28,3 +28,4 @@ numDevices=PsychHID('NumDevices');
         end;
         fprintf('Using Device #%d (%s)\n',inputDevice,devices(n).product);
     end;
+end

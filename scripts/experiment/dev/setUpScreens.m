@@ -36,3 +36,4 @@ for color = 1:3
 end
 
 HideCursor;
+end

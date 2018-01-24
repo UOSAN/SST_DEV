@@ -24,4 +24,5 @@ function [wave pahandle] = configSound()
     %     samp = 22254.545454;
     %     aud_stim = sin(1:0.25:1000);
     %     Snd('Play',aud_stim,samp);
+end
     
