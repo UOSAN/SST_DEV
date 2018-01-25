@@ -26,7 +26,7 @@ fprintf('%d stop events according to the ladder column\n',stopEventsInLadderCol)
 
 fprintf('\nLoad the stim prez order file and look at exploreStimOrder to check further\n\n')
 
-fprintf('checking that the output Seeker reflects appropriate adjustment\n\n') 
+fprintf('checking that the output Seeker reflects appropriate adjustment') 
 % once you test it with full 128 trials, better able to check final Seeker output 
 
 trackfile=input('Enter name of subject''s completed ''mat'' file to open: ','s');
@@ -45,8 +45,8 @@ unhealthyStops = sum(seekerStops & seekerUnhealthy);
 fprintf('%d gos and %d stops for Healthy trials\n%d gos and %d stops for Unhealthy trials \n',healthyGos,healthyStops,unhealthyGos,unhealthyStops)
 SSDtrials = Seeker(:,6)>0;
 staircaseTrials = abs(Seeker(:,8))>0;
-SSDgo = sum(SSDtrials&isGo);
-staircaseGo = sum(staircaseTrials&isGo);
-fprintf('%d SSDs logged on Go trials\n%d staircase directions logged on Go trials \n(Both should be 0) \n',SSDgo,staircaseGo)
+SSDgo = sum(SSDtrials&goTrials);
+staircaseGo = sum(staircaseTrials&goTrials)
+% col 6 (SSD) (only should be on stop trials)
 
 end
