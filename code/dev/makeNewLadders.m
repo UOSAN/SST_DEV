@@ -1,15 +1,9 @@
-for s=1:59
-    for r=2:10
-    load(['dub_st' num2str(s) 'b' num2str(r) '.mat'])
-    temp1=trialcode;
-    load(['dub_st' num2str(s+1) 'b' num2str(r) '.mat'])
-    temp2=trialcode;
-    
-    trialcode = cell(1,2);
-    
-    trialcode{1} = temp1;
-    trialcode{2} = temp2;
-    save(['dub_st' num2str(s) 'b' num2str(r) '.mat'],'trialcode')
+cd ~/Desktop/DEV/SST_DEV/input/ladderFiles
+for s=1:120
+    for r=1:5
+    oldFilename = ['s' num2str(s) 'r' num2str(r) '_UvH.mat'];
+    newFilename = ['s' num2str(s+240) 'r' num2str(r) '_UvH.mat'];
+    copyfile(oldFilename,newFilename)
     end
 end
 

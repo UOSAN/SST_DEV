@@ -3,6 +3,7 @@
 **/*.log
 **/devices*.mat
 input/current.mat
+input/devices*.mat
 
 # Folders
 output/
