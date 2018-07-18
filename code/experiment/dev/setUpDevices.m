@@ -1,6 +1,7 @@
 function [inputDevice] = setUpDevices(MRI)
 numDevices=PsychHID('NumDevices');
     devices=PsychHID('Devices');
+    save devices
     if MRI==1,
         for n=1:numDevices,
             if (findstr(devices(n).transport,'USB') & findstr(devices(n).usageName,'Keyboard') & (devices(n).productID==612 | devices(n).vendorID==1523 | devices(n).totalElements==244)),

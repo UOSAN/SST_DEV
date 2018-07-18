@@ -1,9 +1,0 @@
-cd ~/Desktop/DEV/SST_DEV/input/ladderFiles
-for s=1:120
-    for r=1:5
-    old_filename = ['s' num2str(s) 'r'   
-    new_filename = ['s' num2str(s+120) 'r' num2str(r)
-    copyfile()
-    end
-end
-
