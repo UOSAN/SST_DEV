@@ -1,6 +1,7 @@
 # Files
 **/.DS_Store
 **/*.log
+input/devices*.mat
 
 # Folders
 output/
