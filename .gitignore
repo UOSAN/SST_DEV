@@ -1,1 +1,9 @@
-.DS_Store
+# Files
+**/.DS_Store
+**/*.log
+**/devices*.mat
+input/current.mat
+
+# Folders
+output/
+input/ratingFiles/
