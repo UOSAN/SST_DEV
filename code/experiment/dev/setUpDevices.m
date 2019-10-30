@@ -56,6 +56,6 @@ else
             response_keyboard=n;
         end
     end
-    printf('Using Device #%d (%s)\n',response_keyboard,devices(n).product);
+    fprintf('Using Device #%d (%s)\n',response_keyboard,devices(n).product);
 end
 end
