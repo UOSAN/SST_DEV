@@ -1,0 +1,296 @@
+﻿<?xml version="1.0" ?>
+<PsychoPy2experiment encoding="utf-8" version="2020.1.2">
+  <Settings>
+    <Param name="Audio latency priority" updates="None" val="use prefs" valType="str"/>
+    <Param name="Audio lib" updates="None" val="use prefs" valType="str"/>
+    <Param name="Completed URL" updates="None" val="" valType="str"/>
+    <Param name="Data filename" updates="None" val="$os.path.relpath(os.path.join(os.path.expanduser('~'), 'Dropbox (PfeiBer Lab)', 'Devaluation', 'Tasks', 'SST_DEV', 'output', expName + expInfo['participant'] + '_run' + expInfo['session'] + '_' + data.getDateStr(format='%d-%b-%Y_%H-%M')))" valType="code"/>
+    <Param name="Enable Escape" updates="None" val="True" valType="bool"/>
+    <Param name="Experiment info" updates="None" val="{'participant': '999', 'session': '1', 'run_number': '1'}" valType="code"/>
+    <Param name="Force stereo" updates="None" val="True" valType="bool"/>
+    <Param name="Full-screen window" updates="None" val="False" valType="bool"/>
+    <Param name="HTML path" updates="None" val="html" valType="str"/>
+    <Param name="Incomplete URL" updates="None" val="" valType="str"/>
+    <Param name="Monitor" updates="None" val="testMonitor" valType="str"/>
+    <Param name="Save csv file" updates="None" val="False" valType="bool"/>
+    <Param name="Save excel file" updates="None" val="False" valType="bool"/>
+    <Param name="Save log file" updates="None" val="True" valType="bool"/>
+    <Param name="Save psydat file" updates="None" val="True" valType="bool"/>
+    <Param name="Save wide csv file" updates="None" val="True" valType="bool"/>
+    <Param name="Screen" updates="None" val="1" valType="num"/>
+    <Param name="Show info dlg" updates="None" val="True" valType="bool"/>
+    <Param name="Show mouse" updates="None" val="False" valType="bool"/>
+    <Param name="Units" updates="None" val="height" valType="str"/>
+    <Param name="Use version" updates="None" val="" valType="str"/>
+    <Param name="Window size (pixels)" updates="None" val="[1280, 720]" valType="code"/>
+    <Param name="blendMode" updates="None" val="avg" valType="str"/>
+    <Param name="color" updates="None" val="$[-0.059,-0.059,-0.059]" valType="str"/>
+    <Param name="colorSpace" updates="None" val="rgb" valType="str"/>
+    <Param name="expName" updates="None" val="DEV" valType="str"/>
+    <Param name="exportHTML" updates="None" val="on Sync" valType="str"/>
+    <Param name="logging level" updates="None" val="exp" valType="code"/>
+  </Settings>
+  <Routines>
+    <Routine name="trial">
+      <ImageComponent name="image_stimulus">
+        <Param name="color" updates="constant" val="$[1,1,1]" valType="str"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="2" valType="code"/>
+        <Param name="flipHoriz" updates="constant" val="False" valType="bool"/>
+        <Param name="flipVert" updates="constant" val="False" valType="bool"/>
+        <Param name="image" updates="set every repeat" val="$image_file" valType="str"/>
+        <Param name="interpolate" updates="constant" val="linear" valType="str"/>
+        <Param name="mask" updates="constant" val="circle" valType="str"/>
+        <Param name="name" updates="None" val="image_stimulus" valType="code"/>
+        <Param name="opacity" updates="constant" val="1" valType="code"/>
+        <Param name="ori" updates="constant" val="0" valType="code"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
+        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
+        <Param name="size" updates="constant" val="(0.5, 0.5)" valType="code"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="condition" valType="str"/>
+        <Param name="stopVal" updates="constant" val="$key_resp.status == FINISHED" valType="code"/>
+        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
+        <Param name="texture resolution" updates="constant" val="128" valType="code"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+      </ImageComponent>
+      <PolygonComponent name="polygon">
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="2" valType="code"/>
+        <Param name="fillColor" updates="constant" val="" valType="str"/>
+        <Param name="fillColorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="interpolate" updates="constant" val="linear" valType="str"/>
+        <Param name="lineColor" updates="set every repeat" val="$color" valType="str"/>
+        <Param name="lineColorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="lineWidth" updates="constant" val="10" valType="code"/>
+        <Param name="nVertices" updates="constant" val="1000" valType="int"/>
+        <Param name="name" updates="None" val="polygon" valType="code"/>
+        <Param name="opacity" updates="constant" val="1" valType="code"/>
+        <Param name="ori" updates="constant" val="0" valType="code"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
+        <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
+        <Param name="shape" updates="constant" val="regular polygon..." valType="str"/>
+        <Param name="size" updates="constant" val="(0.5, 0.5)" valType="code"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="condition" valType="str"/>
+        <Param name="stopVal" updates="constant" val="$key_resp.status == FINISHED" valType="code"/>
+        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+      </PolygonComponent>
+      <ImageComponent name="arrow_image">
+        <Param name="color" updates="constant" val="$[1,1,1]" valType="str"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="1" valType="code"/>
+        <Param name="flipHoriz" updates="constant" val="False" valType="bool"/>
+        <Param name="flipVert" updates="constant" val="False" valType="bool"/>
+        <Param name="image" updates="set every repeat" val="$os.path.join('stimuli', 'arrows', arrow)" valType="str"/>
+        <Param name="interpolate" updates="constant" val="linear" valType="str"/>
+        <Param name="mask" updates="constant" val="None" valType="str"/>
+        <Param name="name" updates="None" val="arrow_image" valType="code"/>
+        <Param name="opacity" updates="constant" val="1" valType="code"/>
+        <Param name="ori" updates="constant" val="0" valType="code"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
+        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
+        <Param name="size" updates="constant" val="" valType="code"/>
+        <Param name="startEstim" updates="None" val="1" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="$jitter_duration + 0.5" valType="code"/>
+        <Param name="stopType" updates="None" val="condition" valType="str"/>
+        <Param name="stopVal" updates="constant" val="$key_resp.status == FINISHED" valType="code"/>
+        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
+        <Param name="texture resolution" updates="constant" val="128" valType="code"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+      </ImageComponent>
+      <SoundComponent name="stop_signal_sound">
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="hamming" updates="constant" val="True" valType="bool"/>
+        <Param name="name" updates="None" val="stop_signal_sound" valType="code"/>
+        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
+        <Param name="sound" updates="constant" val="880" valType="str"/>
+        <Param name="startEstim" updates="None" val="1.25" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="$staircase[staircase_number] + 1" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="0.25" valType="code"/>
+        <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
+        <Param name="volume" updates="set every repeat" val="sound_volume" valType="code"/>
+      </SoundComponent>
+      <KeyboardComponent name="key_resp">
+        <Param name="allowedKeys" updates="constant" val="" valType="code"/>
+        <Param name="correctAns" updates="constant" val="" valType="str"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="discard previous" updates="constant" val="True" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="1" valType="code"/>
+        <Param name="forceEndRoutine" updates="constant" val="True" valType="bool"/>
+        <Param name="name" updates="None" val="key_resp" valType="code"/>
+        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="1.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="1" valType="code"/>
+        <Param name="store" updates="constant" val="last key" valType="str"/>
+        <Param name="storeCorrect" updates="constant" val="False" valType="bool"/>
+        <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
+      </KeyboardComponent>
+      <CodeComponent name="staircase_adjustment">
+        <Param name="Begin Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="#&amp;#10;# Custom code to emit sound on 'nogo' trials&amp;#10;#&amp;#10;if trial_type == 'nogo':&amp;#10;    sound_volume = 1&amp;#10;else:&amp;#10;    sound_volume = 0&amp;#10;&amp;#10;# Set the volume for the sound component, so it updates after the sound_volume has been determined&amp;#10;stop_signal_sound.setVolume(sound_volume, log=False)&amp;#10;&amp;#10;&amp;#10;# Setup the initial arrow image&amp;#10;if trials.thisN == 0:&amp;#10;    arrow = f'{arrow_direction}_arrow1.png'" valType="extendedCode"/>
+        <Param name="Code Type" updates="None" val="Py" valType="str"/>
+        <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Routine" updates="constant" val="#&amp;#10;# Custom code to update staircases&amp;#10;#&amp;#10;response = key_resp.keys&amp;#10;step_size = 0.50&amp;#10;&amp;#10;# If there is any kind of response in the no-go trials, decrease the stop signal delay (make the sound buzz sooner)&amp;#10;# If there is not a response, increase the delay.&amp;#10;if trial_type == 'nogo':&amp;#10;    if response:&amp;#10;        if staircase[staircase_number] &gt;= step_size:&amp;#10;            staircase[staircase_number] = staircase[staircase_number] - step_size&amp;#10;    else:&amp;#10;        staircase[staircase_number] = staircase[staircase_number] + step_size&amp;#10;&amp;#10;high_threshold = 0.75&amp;#10;low_threshold = 0.5&amp;#10;&amp;#10;if isinstance(key_resp.rt, list):&amp;#10;    response_time = 0.0&amp;#10;else:&amp;#10;    response_time = key_resp.rt&amp;#10;&amp;#10;if response_time &gt; high_threshold:&amp;#10;    color = red&amp;#10;    arrow = f'{arrow_direction}_arrow3.png'&amp;#10;elif response_time &gt; low_threshold:&amp;#10;    color = orange&amp;#10;    arrow = f'{arrow_direction}_arrow2.png'&amp;#10;else:&amp;#10;    color = white&amp;#10;    arrow = f'{arrow_direction}_arrow1.png'" valType="extendedCode"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="name" updates="None" val="staircase_adjustment" valType="code"/>
+      </CodeComponent>
+    </Routine>
+    <Routine name="setup">
+      <CodeComponent name="setup_code">
+        <Param name="Begin Experiment" updates="constant" val="#&amp;#10;# Custom code to set up conditions files&amp;#10;#&amp;#10;import glob&amp;#10;import os&amp;#10;import re&amp;#10;from operator import itemgetter&amp;#10;&amp;#10;from numpy.random import shuffle&amp;#10;from scipy.io import loadmat&amp;#10;from typing import List&amp;#10;&amp;#10;&amp;#10;def is_mri_session(session: str) -&gt; bool:&amp;#10;    return session == '1' or session == '2'&amp;#10;&amp;#10;&amp;#10;def read_image_selection_output(participant: str) -&gt; List[List]:&amp;#10;    # read subject's category ratings file&amp;#10;    image_selection_output = os.path.join(os.path.expanduser('~'), 'Dropbox (PfeiBer Lab)', 'Devaluation', 'Tasks',&amp;#10;                                          'ImageSelection', 'output', 'Categorized',&amp;#10;                                          'DEV' + participant + '_ratings.csv')&amp;#10;    image_selection = []&amp;#10;    with open(image_selection_output) as f:&amp;#10;        for line in f:&amp;#10;            rating, category, file_name = line.strip().split(',')&amp;#10;            # Drop all the non-craved category images&amp;#10;            if category != '0':&amp;#10;                image_selection.append([rating, category, file_name])&amp;#10;&amp;#10;    return image_selection&amp;#10;&amp;#10;&amp;#10;def read_trialcode_matfile(participant: str, session: str):&amp;#10;    # Read the participant and session specific file describing each trial:&amp;#10;    # trial_type (0=Go, 1=NoGo, 2=null),&amp;#10;    # duration of cue (add jitter to Go and NoGo trials),&amp;#10;    # trial_start_time the trial should begin,&amp;#10;    # arrow_type (0=left, 1=right, 2=no arrow),&amp;#10;    # ladder_number (1 or 2, 0=no ladder),&amp;#10;    # stimulus_type (1=healthy, 0=unhealthy, 2=null)&amp;#10;    trialcode_file = 's' + str(int(participant)) + 'r' + str(int(session)) + '_UvH.mat'&amp;#10;    matfile_contents = loadmat(os.path.join('input', 'ladderFiles', trialcode_file))&amp;#10;    trialcode = matfile_contents['trialcode']&amp;#10;    temp_trial_type = trialcode[..., 0]&amp;#10;    trial_type = ['go' if a == 0 else 'nogo' for a in temp_trial_type]&amp;#10;    duration = trialcode[..., 1]&amp;#10;    trial_start_time = trialcode[..., 2]&amp;#10;    temp_arrow_type = trialcode[..., 3]&amp;#10;    arrow_type = ['L' if a == 0 else 'R' for a in temp_arrow_type]&amp;#10;    ladder_number = trialcode[..., 4].astype(int)&amp;#10;    stimulus_type = trialcode[..., 5]&amp;#10;&amp;#10;    return trial_type, duration, trial_start_time, arrow_type, ladder_number, stimulus_type&amp;#10;&amp;#10;&amp;#10;def read_jitter() -&gt; List[float]:&amp;#10;    jitter_path = os.path.join('input', 'jitter.txt')&amp;#10;    with open(jitter_path) as f:&amp;#10;        lines = f.readlines()&amp;#10;        jitter = [float(j) for j in lines]&amp;#10;    return jitter&amp;#10;&amp;#10;&amp;#10;participant = expInfo['participant']&amp;#10;session = expInfo['session']&amp;#10;run_number = expInfo['run_number']&amp;#10;&amp;#10;# Create some variables needed later&amp;#10;orange = (1, 0, -1)&amp;#10;red = (1, -1, -1)&amp;#10;white = (1, 1, 1)&amp;#10;color = white&amp;#10;arrow = 'L_arrow1.png'&amp;#10;sound_volume = 1&amp;#10;staircase = {1: 0.250, 2: 0.350, 0: 0.0}&amp;#10;&amp;#10;# Read the jitter&amp;#10;jitter = read_jitter()&amp;#10;&amp;#10;image_selection = read_image_selection_output(participant)&amp;#10;&amp;#10;# image_selection output is a CSV file with three fields: rating, image category, image file name.&amp;#10;# Image categories 1, 2, 3 are craved foods. Image category 0 is not craved.&amp;#10;# Reverse sort by rating to get highest rated images of craved foods first.&amp;#10;image_selection.sort(key=itemgetter(0), reverse=True)&amp;#10;&amp;#10;num_trials = 64&amp;#10;# If there aren't enough images, add copies of the images until there are enough.&amp;#10;if len(image_selection) &lt; num_trials:&amp;#10;    shuffle(image_selection)&amp;#10;    num_copies = num_trials // len(image_selection) + 1&amp;#10;    image_selection = (image_selection * num_copies)&amp;#10;# then just slice off the desired number of images&amp;#10;image_selection = image_selection[:num_trials]&amp;#10;shuffle(image_selection)&amp;#10;&amp;#10;unhealthy_images = []&amp;#10;for _, _, image_name in image_selection:&amp;#10;    pattern = r'\A\D+'&amp;#10;    result = re.match(pattern, image_name)&amp;#10;    category_name = result.group()&amp;#10;&amp;#10;    unhealthy_images.append(os.path.join('stimuli', 'CategorizedImages', 'Unhealthy', category_name, image_name))&amp;#10;&amp;#10;# Get the healthy images&amp;#10;healthy_images = glob.glob(os.path.relpath(os.path.join('stimuli', 'CategorizedImages', 'Healthy', '**jpg')))&amp;#10;shuffle(healthy_images)&amp;#10;healthy_images = healthy_images[:num_trials]&amp;#10;&amp;#10;trial_type, duration, trial_start_time, arrow_type, ladder_number, stimulus_type = read_trialcode_matfile(participant, session)&amp;#10;&amp;#10;with open('conditions.csv', mode='w') as f:&amp;#10;    f.write('trial_type,stimulus_type,arrow_direction,staircase_number,image_file,null_duration,jitter_duration\n')&amp;#10;    healthy_index = 0&amp;#10;    unhealthy_index = 0&amp;#10;    for i in range(0, len(trial_type), 2):&amp;#10;        null_duration = duration[i + 1]&amp;#10;        if stimulus_type[i] == 0:&amp;#10;            image_file = unhealthy_images[unhealthy_index]&amp;#10;            unhealthy_index += 1&amp;#10;            stimulus = 'unhealthy'&amp;#10;        elif stimulus_type[i] == 1:&amp;#10;            image_file = healthy_images[healthy_index]&amp;#10;            healthy_index += 1&amp;#10;            stimulus = 'healthy'&amp;#10;        else:&amp;#10;            raise ValueError('Invalid stimulus type')&amp;#10;&amp;#10;        f.write(f'{trial_type[i]},{stimulus},{arrow_type[i]},{ladder_number[i]},{image_file},{null_duration},{jitter[i // 2]}\n')&amp;#10;" valType="extendedCode"/>
+        <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Code Type" updates="None" val="Py" valType="str"/>
+        <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="name" updates="None" val="setup_code" valType="code"/>
+      </CodeComponent>
+    </Routine>
+    <Routine name="instructions">
+      <CodeComponent name="set_start_text">
+        <Param name="Begin Experiment" updates="constant" val="#&amp;#10;# Display different start text / instructions for behavioral sessions compared with MRI scan sessions.&amp;#10;session = expInfo['session']&amp;#10;if is_mri_session(session):&amp;#10;    start_text_str = 'Scanner calibrating.\nPlease hold VERY still.'&amp;#10;else:&amp;#10;    start_text_str = 'Press the left button (LEFT index finger) if you see &lt;\n' \&amp;#10;                     'Press the right button (RIGHT index finger) if you see &gt;\n' \&amp;#10;                     'Press the button as QUICKLY and as ACCURATELY\n' \&amp;#10;                     'as you can when you see the arrow.\n' \&amp;#10;                     'But if you hear a beep, try very hard to STOP\n' \&amp;#10;                     'yourself from pressing the button on that arrow only.\n' \&amp;#10;                     'GOING and STOPPING are equally important.\n' \&amp;#10;                     'So DO NOT slow down your response to wait for the beep,\n' \&amp;#10;                     'because then you are no longer going when you are supposed to.\n' \&amp;#10;                     'You won''t always be able to stop when you hear a beep,\n' \&amp;#10;                     'but as long as you go quickly all of the time\n' \&amp;#10;                     '(while pushing the correct button for arrow direction),\n' \&amp;#10;                     'and can stop some of the time, you are doing the task correctly.\n' \&amp;#10;                     'Ask the experimenter if you have any questions.\n' \&amp;#10;                     'Press any key to go on.\n'&amp;#10;" valType="extendedCode"/>
+        <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin JS Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Begin Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Code Type" updates="None" val="Py" valType="str"/>
+        <Param name="Each Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="Each JS Frame" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Experiment" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End JS Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="End Routine" updates="constant" val="" valType="extendedCode"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="name" updates="None" val="set_start_text" valType="code"/>
+      </CodeComponent>
+      <TextComponent name="start_text">
+        <Param name="color" updates="constant" val="white" valType="str"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="3" valType="code"/>
+        <Param name="flip" updates="constant" val="" valType="str"/>
+        <Param name="font" updates="constant" val="Arial" valType="str"/>
+        <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
+        <Param name="letterHeight" updates="constant" val="0.04" valType="code"/>
+        <Param name="name" updates="None" val="start_text" valType="code"/>
+        <Param name="opacity" updates="constant" val="1" valType="code"/>
+        <Param name="ori" updates="constant" val="0" valType="code"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
+        <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
+        <Param name="text" updates="set every repeat" val="$start_text_str" valType="str"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+        <Param name="wrapWidth" updates="constant" val="1" valType="code"/>
+      </TextComponent>
+      <KeyboardComponent name="start_trigger">
+        <Param name="allowedKeys" updates="constant" val="" valType="code"/>
+        <Param name="correctAns" updates="constant" val="" valType="str"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="discard previous" updates="constant" val="True" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="3" valType="code"/>
+        <Param name="forceEndRoutine" updates="constant" val="True" valType="bool"/>
+        <Param name="name" updates="None" val="start_trigger" valType="code"/>
+        <Param name="saveStartStop" updates="None" val="False" valType="bool"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="store" updates="constant" val="nothing" valType="str"/>
+        <Param name="storeCorrect" updates="constant" val="False" valType="bool"/>
+        <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
+      </KeyboardComponent>
+    </Routine>
+    <Routine name="end">
+      <TextComponent name="end_text">
+        <Param name="color" updates="constant" val="white" valType="str"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="1" valType="code"/>
+        <Param name="flip" updates="constant" val="" valType="str"/>
+        <Param name="font" updates="constant" val="Arial" valType="str"/>
+        <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
+        <Param name="letterHeight" updates="constant" val="0.04" valType="code"/>
+        <Param name="name" updates="None" val="end_text" valType="code"/>
+        <Param name="opacity" updates="constant" val="1" valType="code"/>
+        <Param name="ori" updates="constant" val="0" valType="code"/>
+        <Param name="pos" updates="constant" val="(0, 0)" valType="code"/>
+        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="1.0" valType="code"/>
+        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
+        <Param name="text" updates="constant" val="Great Job. Thank you!" valType="str"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+        <Param name="wrapWidth" updates="constant" val="" valType="code"/>
+      </TextComponent>
+    </Routine>
+    <Routine name="intertrial">
+      <StaticComponent name="ISI">
+        <Param name="code" updates="None" val="" valType="code"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="1.5" valType="code"/>
+        <Param name="name" updates="None" val="ISI" valType="code"/>
+        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="$null_duration" valType="code"/>
+        <Param name="syncScreenRefresh" updates="None" val="False" valType="bool"/>
+      </StaticComponent>
+    </Routine>
+  </Routines>
+  <Flow>
+    <Routine name="setup"/>
+    <Routine name="instructions"/>
+    <LoopInitiator loopType="TrialHandler" name="trials">
+      <Param name="Selected rows" updates="None" val="" valType="str"/>
+      <Param name="conditions" updates="None" val="[OrderedDict([('trial_type', 'nogo'), ('stimulus_type', 'unhealthy'), ('arrow_direction', 'R'), ('ladder_number', 1), ('image_file', 'stimuli/CategorizedImages/Unhealthy/Barbeque/Barbeque12.jpg'), ('null_duration', 0.5)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'unhealthy'), ('arrow_direction', 'R'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Unhealthy/Chocolate/Chocolate03.jpg'), ('null_duration', 0.75)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'healthy'), ('arrow_direction', 'L'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Healthy/healthy52.jpg'), ('null_duration', 1.25)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'unhealthy'), ('arrow_direction', 'R'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Unhealthy/Candy/Candy04.jpg'), ('null_duration', 1.5)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'healthy'), ('arrow_direction', 'R'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Healthy/healthy115.jpg'), ('null_duration', 1.25)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'healthy'), ('arrow_direction', 'L'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Healthy/healthy111.jpg'), ('null_duration', 0.5)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'healthy'), ('arrow_direction', 'L'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Healthy/healthy83.jpg'), ('null_duration', 0.5)]), OrderedDict([('trial_type', 'nogo'), ('stimulus_type', 'unhealthy'), ('arrow_direction', 'L'), ('ladder_number', 2), ('image_file', 'stimuli/CategorizedImages/Unhealthy/Barbeque/Barbeque10.jpg'), ('null_duration', 1.5)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'unhealthy'), ('arrow_direction', 'L'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Unhealthy/Barbeque/Barbeque17.jpg'), ('null_duration', 3.0)]), OrderedDict([('trial_type', 'nogo'), ('stimulus_type', 'unhealthy'), ('arrow_direction', 'R'), ('ladder_number', 1), ('image_file', 'stimuli/CategorizedImages/Unhealthy/Barbeque/Barbeque20.jpg'), ('null_duration', 2.625)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'healthy'), ('arrow_direction', 'R'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Healthy/healthy33.jpg'), ('null_duration', 2.875)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'healthy'), ('arrow_direction', 'R'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Healthy/healthy41.jpg'), ('null_duration', 1.75)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'unhealthy'), ('arrow_direction', 'R'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Unhealthy/Candy/Candy19.jpg'), ('null_duration', 0.75)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'unhealthy'), ('arrow_direction', 'L'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Unhealthy/Chocolate/Chocolate22.jpg'), ('null_duration', 0.875)]), OrderedDict([('trial_type', 'nogo'), ('stimulus_type', 'healthy'), ('arrow_direction', 'L'), ('ladder_number', 2), ('image_file', 'stimuli/CategorizedImages/Healthy/healthy20.jpg'), ('null_duration', 0.5)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'healthy'), ('arrow_direction', 'L'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Healthy/healthy64.jpg'), ('null_duration', 0.75)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'healthy'), ('arrow_direction', 'L'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Healthy/healthy94.jpg'), ('null_duration', 0.625)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'unhealthy'), ('arrow_direction', 'L'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Unhealthy/Chocolate/Chocolate16.jpg'), ('null_duration', 0.625)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'healthy'), ('arrow_direction', 'L'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Healthy/healthy37.jpg'), ('null_duration', 2.125)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'unhealthy'), ('arrow_direction', 'R'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Unhealthy/Barbeque/Barbeque01.jpg'), ('null_duration', 0.5)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'healthy'), ('arrow_direction', 'R'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Healthy/healthy9.jpg'), ('null_duration', 0.875)]), OrderedDict([('trial_type', 'nogo'), ('stimulus_type', 'healthy'), ('arrow_direction', 'R'), ('ladder_number', 2), ('image_file', 'stimuli/CategorizedImages/Healthy/healthy67.jpg'), ('null_duration', 1.0)]), OrderedDict([('trial_type', 'nogo'), ('stimulus_type', 'unhealthy'), ('arrow_direction', 'L'), ('ladder_number', 1), ('image_file', 'stimuli/CategorizedImages/Unhealthy/Chocolate/Chocolate11.jpg'), ('null_duration', 0.625)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'unhealthy'), ('arrow_direction', 'R'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Unhealthy/Chocolate/Chocolate30.jpg'), ('null_duration', 0.625)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'healthy'), ('arrow_direction', 'L'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Healthy/healthy53.jpg'), ('null_duration', 0.625)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'unhealthy'), ('arrow_direction', 'R'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Unhealthy/Barbeque/Barbeque03.jpg'), ('null_duration', 0.625)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'unhealthy'), ('arrow_direction', 'L'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Unhealthy/Chocolate/Chocolate10.jpg'), ('null_duration', 0.875)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'healthy'), ('arrow_direction', 'R'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Healthy/healthy110.jpg'), ('null_duration', 1.75)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'healthy'), ('arrow_direction', 'L'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Healthy/healthy120.jpg'), ('null_duration', 2.375)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'healthy'), ('arrow_direction', 'R'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Healthy/healthy87.jpg'), ('null_duration', 0.5)]), OrderedDict([('trial_type', 'nogo'), ('stimulus_type', 'unhealthy'), ('arrow_direction', 'L'), ('ladder_number', 2), ('image_file', 'stimuli/CategorizedImages/Unhealthy/Barbeque/Barbeque23.jpg'), ('null_duration', 0.625)]), OrderedDict([('trial_type', 'nogo'), ('stimulus_type', 'unhealthy'), ('arrow_direction', 'R'), ('ladder_number', 1), ('image_file', 'stimuli/CategorizedImages/Unhealthy/Candy/Candy10.jpg'), ('null_duration', 0.875)]), OrderedDict([('trial_type', 'nogo'), ('stimulus_type', 'unhealthy'), ('arrow_direction', 'L'), ('ladder_number', 2), ('image_file', 'stimuli/CategorizedImages/Unhealthy/Chocolate/Chocolate24.jpg'), ('null_duration', 2.0)]), OrderedDict([('trial_type', 'nogo'), ('stimulus_type', 'unhealthy'), ('arrow_direction', 'R'), ('ladder_number', 1), ('image_file', 'stimuli/CategorizedImages/Unhealthy/Candy/Candy02.jpg'), ('null_duration', 1.625)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'healthy'), ('arrow_direction', 'L'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Healthy/healthy114.jpg'), ('null_duration', 0.75)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'healthy'), ('arrow_direction', 'L'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Healthy/healthy121.jpg'), ('null_duration', 1.5)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'healthy'), ('arrow_direction', 'R'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Healthy/healthy61.jpg'), ('null_duration', 0.625)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'unhealthy'), ('arrow_direction', 'L'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Unhealthy/Candy/Candy16.jpg'), ('null_duration', 1.5)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'unhealthy'), ('arrow_direction', 'R'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Unhealthy/Barbeque/Barbeque18.jpg'), ('null_duration', 1.375)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'healthy'), ('arrow_direction', 'R'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Healthy/healthy72.jpg'), ('null_duration', 1.0)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'unhealthy'), ('arrow_direction', 'R'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Unhealthy/Barbeque/Barbeque21.jpg'), ('null_duration', 2.875)]), OrderedDict([('trial_type', 'nogo'), ('stimulus_type', 'unhealthy'), ('arrow_direction', 'L'), ('ladder_number', 1), ('image_file', 'stimuli/CategorizedImages/Unhealthy/Barbeque/Barbeque15.jpg'), ('null_duration', 0.75)]), OrderedDict([('trial_type', 'nogo'), ('stimulus_type', 'healthy'), ('arrow_direction', 'R'), ('ladder_number', 2), ('image_file', 'stimuli/CategorizedImages/Healthy/healthy117.jpg'), ('null_duration', 0.625)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'unhealthy'), ('arrow_direction', 'R'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Unhealthy/Candy/Candy30.jpg'), ('null_duration', 1.5)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'healthy'), ('arrow_direction', 'L'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Healthy/healthy19.jpg'), ('null_duration', 0.875)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'healthy'), ('arrow_direction', 'L'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Healthy/healthy35.jpg'), ('null_duration', 0.625)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'healthy'), ('arrow_direction', 'L'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Healthy/healthy71.jpg'), ('null_duration', 0.5)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'healthy'), ('arrow_direction', 'R'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Healthy/healthy11.jpg'), ('null_duration', 1.875)]), OrderedDict([('trial_type', 'nogo'), ('stimulus_type', 'healthy'), ('arrow_direction', 'L'), ('ladder_number', 1), ('image_file', 'stimuli/CategorizedImages/Healthy/healthy56.jpg'), ('null_duration', 2.0)]), OrderedDict([('trial_type', 'nogo'), ('stimulus_type', 'unhealthy'), ('arrow_direction', 'R'), ('ladder_number', 2), ('image_file', 'stimuli/CategorizedImages/Unhealthy/Candy/Candy14.jpg'), ('null_duration', 2.625)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'healthy'), ('arrow_direction', 'L'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Healthy/healthy76.jpg'), ('null_duration', 3.25)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'unhealthy'), ('arrow_direction', 'R'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Unhealthy/Barbeque/Barbeque04.jpg'), ('null_duration', 0.5)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'healthy'), ('arrow_direction', 'L'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Healthy/healthy70.jpg'), ('null_duration', 0.5)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'healthy'), ('arrow_direction', 'R'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Healthy/healthy14.jpg'), ('null_duration', 1.875)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'healthy'), ('arrow_direction', 'R'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Healthy/healthy63.jpg'), ('null_duration', 0.625)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'healthy'), ('arrow_direction', 'L'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Healthy/healthy34.jpg'), ('null_duration', 2.5)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'healthy'), ('arrow_direction', 'R'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Healthy/healthy91.jpg'), ('null_duration', 1.5)]), OrderedDict([('trial_type', 'nogo'), ('stimulus_type', 'unhealthy'), ('arrow_direction', 'L'), ('ladder_number', 1), ('image_file', 'stimuli/CategorizedImages/Unhealthy/Chocolate/Chocolate28.jpg'), ('null_duration', 2.0)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'healthy'), ('arrow_direction', 'L'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Healthy/healthy54.jpg'), ('null_duration', 1.25)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'unhealthy'), ('arrow_direction', 'L'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Unhealthy/Chocolate/Chocolate09.jpg'), ('null_duration', 0.5)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'healthy'), ('arrow_direction', 'R'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Healthy/healthy89.jpg'), ('null_duration', 3.875)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'healthy'), ('arrow_direction', 'R'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Healthy/healthy118.jpg'), ('null_duration', 1.75)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'unhealthy'), ('arrow_direction', 'L'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Unhealthy/Chocolate/Chocolate18.jpg'), ('null_duration', 0.75)]), OrderedDict([('trial_type', 'nogo'), ('stimulus_type', 'unhealthy'), ('arrow_direction', 'R'), ('ladder_number', 2), ('image_file', 'stimuli/CategorizedImages/Unhealthy/Candy/Candy22.jpg'), ('null_duration', 0.625)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'healthy'), ('arrow_direction', 'L'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Healthy/healthy112.jpg'), ('null_duration', 3.5)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'healthy'), ('arrow_direction', 'R'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Healthy/healthy46.jpg'), ('null_duration', 1.25)]), OrderedDict([('trial_type', 'nogo'), ('stimulus_type', 'unhealthy'), ('arrow_direction', 'L'), ('ladder_number', 1), ('image_file', 'stimuli/CategorizedImages/Unhealthy/Candy/Candy24.jpg'), ('null_duration', 1.125)]), OrderedDict([('trial_type', 'nogo'), ('stimulus_type', 'unhealthy'), ('arrow_direction', 'R'), ('ladder_number', 2), ('image_file', 'stimuli/CategorizedImages/Unhealthy/Barbeque/Barbeque11.jpg'), ('null_duration', 1.375)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'healthy'), ('arrow_direction', 'R'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Healthy/healthy65.jpg'), ('null_duration', 0.5)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'unhealthy'), ('arrow_direction', 'L'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Unhealthy/Chocolate/Chocolate02.jpg'), ('null_duration', 0.625)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'unhealthy'), ('arrow_direction', 'L'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Unhealthy/Candy/Candy03.jpg'), ('null_duration', 1.125)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'unhealthy'), ('arrow_direction', 'R'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Unhealthy/Barbeque/Barbeque13.jpg'), ('null_duration', 0.625)]), OrderedDict([('trial_type', 'nogo'), ('stimulus_type', 'unhealthy'), ('arrow_direction', 'L'), ('ladder_number', 2), ('image_file', 'stimuli/CategorizedImages/Unhealthy/Barbeque/Barbeque19.jpg'), ('null_duration', 1.625)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'healthy'), ('arrow_direction', 'L'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Healthy/healthy57.jpg'), ('null_duration', 1.125)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'healthy'), ('arrow_direction', 'L'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Healthy/healthy132.jpg'), ('null_duration', 2.5)]), OrderedDict([('trial_type', 'nogo'), ('stimulus_type', 'unhealthy'), ('arrow_direction', 'R'), ('ladder_number', 1), ('image_file', 'stimuli/CategorizedImages/Unhealthy/Chocolate/Chocolate26.jpg'), ('null_duration', 1.75)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'healthy'), ('arrow_direction', 'R'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Healthy/healthy60.jpg'), ('null_duration', 0.625)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'unhealthy'), ('arrow_direction', 'R'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Unhealthy/Chocolate/Chocolate06.jpg'), ('null_duration', 0.5)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'healthy'), ('arrow_direction', 'R'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Healthy/healthy113.jpg'), ('null_duration', 1.125)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'unhealthy'), ('arrow_direction', 'L'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Unhealthy/Chocolate/Chocolate14.jpg'), ('null_duration', 1.0)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'unhealthy'), ('arrow_direction', 'R'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Unhealthy/Chocolate/Chocolate12.jpg'), ('null_duration', 2.375)]), OrderedDict([('trial_type', 'nogo'), ('stimulus_type', 'unhealthy'), ('arrow_direction', 'L'), ('ladder_number', 2), ('image_file', 'stimuli/CategorizedImages/Unhealthy/Barbeque/Barbeque06.jpg'), ('null_duration', 1.25)]), OrderedDict([('trial_type', 'nogo'), ('stimulus_type', 'unhealthy'), ('arrow_direction', 'R'), ('ladder_number', 1), ('image_file', 'stimuli/CategorizedImages/Unhealthy/Barbeque/Barbeque16.jpg'), ('null_duration', 0.75)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'unhealthy'), ('arrow_direction', 'R'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Unhealthy/Chocolate/Chocolate07.jpg'), ('null_duration', 2.25)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'healthy'), ('arrow_direction', 'L'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Healthy/healthy36.jpg'), ('null_duration', 1.0)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'unhealthy'), ('arrow_direction', 'L'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Unhealthy/Barbeque/Barbeque28.jpg'), ('null_duration', 0.875)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'healthy'), ('arrow_direction', 'R'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Healthy/healthy39.jpg'), ('null_duration', 0.5)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'unhealthy'), ('arrow_direction', 'L'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Unhealthy/Barbeque/Barbeque26.jpg'), ('null_duration', 0.625)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'healthy'), ('arrow_direction', 'L'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Healthy/healthy85.jpg'), ('null_duration', 1.125)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'unhealthy'), ('arrow_direction', 'R'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Unhealthy/Candy/Candy11.jpg'), ('null_duration', 1.5)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'unhealthy'), ('arrow_direction', 'R'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Unhealthy/Barbeque/Barbeque09.jpg'), ('null_duration', 0.625)]), OrderedDict([('trial_type', 'nogo'), ('stimulus_type', 'unhealthy'), ('arrow_direction', 'L'), ('ladder_number', 2), ('image_file', 'stimuli/CategorizedImages/Unhealthy/Candy/Candy09.jpg'), ('null_duration', 1.375)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'healthy'), ('arrow_direction', 'R'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Healthy/healthy32.jpg'), ('null_duration', 1.375)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'unhealthy'), ('arrow_direction', 'L'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Unhealthy/Candy/Candy23.jpg'), ('null_duration', 1.0)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'unhealthy'), ('arrow_direction', 'L'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Unhealthy/Chocolate/Chocolate17.jpg'), ('null_duration', 1.375)]), OrderedDict([('trial_type', 'nogo'), ('stimulus_type', 'healthy'), ('arrow_direction', 'R'), ('ladder_number', 1), ('image_file', 'stimuli/CategorizedImages/Healthy/healthy2.jpg'), ('null_duration', 1.0)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'unhealthy'), ('arrow_direction', 'L'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Unhealthy/Chocolate/Chocolate23.jpg'), ('null_duration', 0.75)]), OrderedDict([('trial_type', 'nogo'), ('stimulus_type', 'unhealthy'), ('arrow_direction', 'L'), ('ladder_number', 1), ('image_file', 'stimuli/CategorizedImages/Unhealthy/Barbeque/Barbeque30.jpg'), ('null_duration', 2.75)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'unhealthy'), ('arrow_direction', 'R'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Unhealthy/Chocolate/Chocolate08.jpg'), ('null_duration', 1.25)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'healthy'), ('arrow_direction', 'L'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Healthy/healthy45.jpg'), ('null_duration', 2.625)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'unhealthy'), ('arrow_direction', 'L'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Unhealthy/Chocolate/Chocolate15.jpg'), ('null_duration', 0.75)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'healthy'), ('arrow_direction', 'R'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Healthy/healthy75.jpg'), ('null_duration', 1.0)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'healthy'), ('arrow_direction', 'R'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Healthy/healthy123.jpg'), ('null_duration', 1.25)]), OrderedDict([('trial_type', 'nogo'), ('stimulus_type', 'unhealthy'), ('arrow_direction', 'R'), ('ladder_number', 2), ('image_file', 'stimuli/CategorizedImages/Unhealthy/Barbeque/Barbeque02.jpg'), ('null_duration', 2.25)]), OrderedDict([('trial_type', 'nogo'), ('stimulus_type', 'unhealthy'), ('arrow_direction', 'L'), ('ladder_number', 2), ('image_file', 'stimuli/CategorizedImages/Unhealthy/Candy/Candy06.jpg'), ('null_duration', 2.25)]), OrderedDict([('trial_type', 'nogo'), ('stimulus_type', 'unhealthy'), ('arrow_direction', 'R'), ('ladder_number', 1), ('image_file', 'stimuli/CategorizedImages/Unhealthy/Barbeque/Barbeque14.jpg'), ('null_duration', 0.5)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'healthy'), ('arrow_direction', 'L'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Healthy/healthy27.jpg'), ('null_duration', 0.75)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'unhealthy'), ('arrow_direction', 'R'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Unhealthy/Barbeque/Barbeque07.jpg'), ('null_duration', 1.25)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'unhealthy'), ('arrow_direction', 'L'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Unhealthy/Candy/Candy13.jpg'), ('null_duration', 1.75)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'healthy'), ('arrow_direction', 'R'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Healthy/healthy80.jpg'), ('null_duration', 0.5)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'unhealthy'), ('arrow_direction', 'L'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Unhealthy/Chocolate/Chocolate29.jpg'), ('null_duration', 1.0)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'healthy'), ('arrow_direction', 'R'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Healthy/healthy82.jpg'), ('null_duration', 1.5)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'unhealthy'), ('arrow_direction', 'R'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Unhealthy/Chocolate/Chocolate13.jpg'), ('null_duration', 2.25)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'healthy'), ('arrow_direction', 'L'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Healthy/healthy84.jpg'), ('null_duration', 1.0)]), OrderedDict([('trial_type', 'nogo'), ('stimulus_type', 'unhealthy'), ('arrow_direction', 'R'), ('ladder_number', 2), ('image_file', 'stimuli/CategorizedImages/Unhealthy/Candy/Candy07.jpg'), ('null_duration', 1.375)]), OrderedDict([('trial_type', 'nogo'), ('stimulus_type', 'unhealthy'), ('arrow_direction', 'L'), ('ladder_number', 1), ('image_file', 'stimuli/CategorizedImages/Unhealthy/Barbeque/Barbeque05.jpg'), ('null_duration', 0.625)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'healthy'), ('arrow_direction', 'L'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Healthy/healthy8.jpg'), ('null_duration', 0.625)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'healthy'), ('arrow_direction', 'R'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Healthy/healthy88.jpg'), ('null_duration', 3.0)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'healthy'), ('arrow_direction', 'R'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Healthy/healthy122.jpg'), ('null_duration', 1.875)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'healthy'), ('arrow_direction', 'L'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Healthy/healthy29.jpg'), ('null_duration', 0.625)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'healthy'), ('arrow_direction', 'L'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Healthy/healthy51.jpg'), ('null_duration', 1.0)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'healthy'), ('arrow_direction', 'R'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Healthy/healthy96.jpg'), ('null_duration', 0.625)]), OrderedDict([('trial_type', 'nogo'), ('stimulus_type', 'unhealthy'), ('arrow_direction', 'L'), ('ladder_number', 2), ('image_file', 'stimuli/CategorizedImages/Unhealthy/Barbeque/Barbeque08.jpg'), ('null_duration', 0.5)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'healthy'), ('arrow_direction', 'R'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Healthy/healthy77.jpg'), ('null_duration', 1.375)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'healthy'), ('arrow_direction', 'R'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Healthy/healthy23.jpg'), ('null_duration', 1.5)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'healthy'), ('arrow_direction', 'L'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Healthy/healthy92.jpg'), ('null_duration', 1.75)]), OrderedDict([('trial_type', 'go'), ('stimulus_type', 'unhealthy'), ('arrow_direction', 'L'), ('ladder_number', 0), ('image_file', 'stimuli/CategorizedImages/Unhealthy/Chocolate/Chocolate25.jpg'), ('null_duration', 0.75)]), OrderedDict([('trial_type', 'nogo'), ('stimulus_type', 'healthy'), ('arrow_direction', 'R'), ('ladder_number', 1), ('image_file', 'stimuli/CategorizedImages/Healthy/healthy49.jpg'), ('null_duration', 1.25)])]" valType="str"/>
+      <Param name="conditionsFile" updates="None" val="conditions.csv" valType="str"/>
+      <Param name="endPoints" updates="None" val="[0, 1]" valType="num"/>
+      <Param name="isTrials" updates="None" val="True" valType="bool"/>
+      <Param name="loopType" updates="None" val="sequential" valType="str"/>
+      <Param name="nReps" updates="None" val="1" valType="code"/>
+      <Param name="name" updates="None" val="trials" valType="code"/>
+      <Param name="random seed" updates="None" val="" valType="code"/>
+    </LoopInitiator>
+    <Routine name="trial"/>
+    <Routine name="intertrial"/>
+    <LoopTerminator name="trials"/>
+    <Routine name="end"/>
+  </Flow>
+</PsychoPy2experiment>
