@@ -59,10 +59,11 @@ flowScheduler.add(quitPsychoJS, '', true);
 dialogCancelScheduler.add(quitPsychoJS, '', false);
 
 // Determine the name of the conditions file based on the participant number and run number
+util.addInfoFromUrl(expInfo);
 var conditions_file;
 var conditions_file_path;
 conditions_file = 'conditions_file.csv';
-conditions_file_path = './resources/DEV' + expInfo['participant'] + '_' + expInfo['session'] + '_conditions.csv';
+conditions_file_path = './DEV' + expInfo['participant'] + '_' + expInfo['session'] + '_conditions.csv';
 
 psychoJS.start({
   expName: expName,
