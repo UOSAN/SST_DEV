@@ -8,3 +8,6 @@ input/devices*.mat
 # Folders
 output/
 input/ratingFiles/
+html/lib
+.idea/
+
