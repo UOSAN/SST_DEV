@@ -6,10 +6,8 @@ The Stop-Signal task (SST) presents image stimuli of foods, followed by an arrow
 
 ## How to run the task
 
-1. Launch the PsychoPy Builder.
-2. Open the file `SST.psyexp`.
-3. Start the experiment by selecting the Tools -> Run menu item
-4. Fill in the subject number, the session number, and the run number. Sessions 1 and 2 are in-scanners sessions, while sessions 3, 4, and 5 are behavioral sessions. Specifying run number of 0 will run a practice version of the task. The task will start automatically after that.
+1. When this task is run online, via pavlovia.org, make sure that a participant-specific conditions files, containing the names of images to be displayed in order, have been created in the `html/` folder. The conditions files are named `DEV999_1_conditions.csv` for participant 999 for session 1. This can be done by starting the Python version of the task and moving the created conditions files. Then, these changes have to be pushed to gitlab.pavlovia.org.
+2. Create the experiment URL with a query string that specifies the participant number, the session number, and the run number. For example, for participant 888, in session 3, performing run number 1, the URL must include `participant=888&session=3&run_number=1`. After this URL is accessed, the images will be downloaded to the participant's computer, then the task will start automatically.
 
 ## Task description
 
@@ -53,10 +51,6 @@ If the participant is slow in reacting, make the circular aperture border and th
 The stop signal delay is determined by two independent staircases that adjust by 50 ms after each stop trial using a staircase function that increases for successful stops and decreases for failed stops. The initial values for the two staircases are 0.25s and 0.35s.
 
 Each run consists of 128 trials (containing 96 go trials and 32 stop trials) and lasts approximately 6 minutes.
-
-## Configuration
-
-On the first run of each session, the image ratings from the ImageSelection task are used to determine which images to display for the unhealthy food condition. The trial order is read from the input/ladderFiles/\*_UvH.mat files.
 
 ## Developer documentation
 
