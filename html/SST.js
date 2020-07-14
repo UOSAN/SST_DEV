@@ -557,7 +557,7 @@ function trialRoutineEachFrame(trials) {
     }
     
     // *circle_border* updates
-    if (t >= (jitter_duration + 0.5) && circle_border.status === PsychoJS.Status.NOT_STARTED) {
+    if (t >= 0.0 && circle_border.status === PsychoJS.Status.NOT_STARTED) {
       // keep track of start time/frame for later
       circle_border.tStart = t;  // (not accounting for frame time here)
       circle_border.frameNStart = frameN;  // exact frame index
