@@ -11,6 +11,7 @@
 
 function SST_DEV()
 
+clear PsychHID;
 clear all;
 exptCode = 'DEV';
 % output version
