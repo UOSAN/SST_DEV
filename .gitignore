@@ -4,6 +4,7 @@
 **/devices*.mat
 input/current.mat
 input/devices*.mat
+**/.Rhistory
 
 # Folders
 output/
