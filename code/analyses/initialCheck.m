@@ -25,18 +25,18 @@
 
 
 % INITIAL SETUP
-studyPrefix = 'REV'; % will use this in analysisReady data filenames. Defined in prep4analysis.m (should be consistent throughout scripts)
-cd '~/Desktop/REV/REV_SST/output/analysisReady/'
+studyPrefix = 'DEV'; % will use this in analysisReady data filenames. Defined in prep4analysis.m (should be consistent throughout scripts)
+cd 'C:\Users\bryan\Dropbox (University of Oregon)\Berkman Lab\Devaluation\Tasks\SST_DEV\output\analysisReady'
 % This should be the folder where your consistently-named SST output live.
 % This script assumed they are named with this format: "REV_sub2_run3.mat"
 % "REV" should be replaced with your study prefix.
 % This would be the 3rd run for the 2nd subject.
 
 % DEFINE SUBS
-numSubs = 144;
-exclude = [4 5 7 8 12 14 15 25 28 30 33 40 42 45 61 63 64 66 71 72 79 81 83 85 87 92 95 96 99 101 103 105 106 112 113 120 122 123 125 128 132 133 139 143];
+numSubs = 228;
+exclude = [1:3 92 136 142 146 148 160 162 165 175 184 212:214 221 226 227];
 
-buttonRuleExceptions = dlmread('../../info/systematicWrongButtons.txt','\t');
+buttonRuleExceptions = dlmread('systematicWrongButtons.txt','\t');
 
 % DEFINE SUB# FORMAT
 % Explain subject number format (matlab does not like zeros before a number)
@@ -50,15 +50,15 @@ end
 
 
 % DEFINE RUNS
-numRuns = 14; % Total number of runs
+numRuns = 5; % Total number of runs
 
 % DEFINE BUTTONS
 % These codes should reflect what's in the response column of the Seeker variable
 % Scanner is usually 91 & 94; Behavioral (keyboard) is 197 & 198 for
 % <carrots>, 15 & 21 for arrows
 
-leftButtonList=[197,91];
-rightButtonList=[198,94];
+leftButtonList=[15,91];
+rightButtonList=[21,94];
 
 % scannerLeftIndex=91;
 % scannerRightIndex=94;
@@ -72,8 +72,6 @@ rightButtonList=[198,94];
 % The script should tell you which columns are which and what different
 % codes mean, but you can also deduce it from looking at the actual output.
 % Change these to reflect your Seeker variable structure.
-
-doubleSeekerRange = 3:16; % REV uses two seeker variables (one for PRC images and one for Neutral images)
 
 % Define columns in output
 trialTypeColumn=3;
@@ -93,13 +91,6 @@ stopCountMat=nan(numSubs,numRuns);
 NRCountMat=nan(numSubs,numRuns);
 wrongGoCountMat=nan(numSubs,numRuns);
 
-weirdButtonCountMatNeut=nan(numSubs,numRuns);
-goCountMatNeut=nan(numSubs,numRuns);
-stopCountMatNeut=nan(numSubs,numRuns);
-NRCountMatNeut=nan(numSubs,numRuns);
-wrongGoCountMatNeut=nan(numSubs,numRuns);
-
-
 % DEFINE BUTTON ROUTES
 for s=1:numSubs
     if find(exclude==s) % Leave excluded subject rows as NaN
@@ -116,49 +107,20 @@ for s=1:numSubs
                     % keep this run as NaNs
                 else
                     
-                    if r<3|r>12 % scanning run
+                    if r<3 % scanning run
                         dub=0;
                         LEFT=leftButtonList(2);
                         RIGHT=rightButtonList(2);
-                    else % training run
+                    else % keyboard run
                         dub=1;
                         LEFT=leftButtonList(1);
                         RIGHT=rightButtonList(1);
-                        neutSeeker=Seeker{2};
-                        Seeker=Seeker{1};
                     end
                     
                     if ~isempty(probRow)
                         LEFT = buttonRuleExceptions(probRow,3);
                         RIGHT = buttonRuleExceptions(probRow,4);
-                        s
-                        r
-                    end
-                    
-                    if dub==1
-                        % DEFINE VARIBLES (FOR TRAINING TRIALS)
-                        trialType=neutSeeker(:,trialTypeColumn); % 0=Go, 1=NoGo, 2=null, 3=notrial
-                        arrowDir=neutSeeker(:,arrowDirColumn); % 0=left, 1=right, 2=null
-                        responseKey=neutSeeker(:,responseKeyColumn);
-                        numGoTrials = sum(trialType==goCode);
-                        numStopTrials = sum(trialType==stopCode);
-                        isGo = trialType==goCode;
-                        isCorrectButton = (arrowDir==leftCode&responseKey==LEFT)|(arrowDir==rightCode&responseKey==RIGHT);
-                        numCorrectGoTrials = sum(isGo&isCorrectButton);
-                        numBadGoTrials = numGoTrials - numCorrectGoTrials;
-                        numNRTrials = sum(isGo&responseKey==0);
-                        weirdButtonTrials = ~(responseKey==0|responseKey==LEFT|responseKey==RIGHT);
-                        
-                        
-                        % DEFINE VARIABLES (FOR NEUTRAL ON TRAINING TRIALS)
-                        % This is only for a double seeker (comment out if using single seeker)
-                        wrongGoCountMatNeut(s,r) = numBadGoTrials - numNRTrials;
-                        goCountMatNeut(s,r) = numGoTrials;
-                        stopCountMatNeut(s,r) = numStopTrials;
-                        NRCountMatNeut(s,r) = numNRTrials;
-                        weirdButtonCountMatNeut(s,r) = sum(weirdButtonTrials);
-                    end  % End training loop
-                    
+                    end                 
                     
                     % DEFINE VARIABLES (FOR SCAN TRIALS)
                     trialType=Seeker(:,trialTypeColumn); % 0=Go, 1=NoGo, 2=null, 3=notrial
@@ -184,6 +146,7 @@ for s=1:numSubs
     end
 end
 
+
 % CREATE OUTPUT DIRECTORIES
 % I make a new directory for output each time I check my data, based on how
 % many subjects I've run:
@@ -200,17 +163,9 @@ mkdir(['../../compiledResults/upTo' studyPrefix placeholder num2str(numSubs) '/c
 % later time (say, while collapsing):
 mkdir(['../../compiledResults/upTo' studyPrefix placeholder num2str(numSubs) '/varMats/'])
 
-% WRITE OUTPUT TO DIRECTORIES
-%creates a file for each type of data check specified in define variables for initial data check section
 dlmwrite(['../../compiledResults/upTo' studyPrefix placeholder num2str(numSubs) '/initialCheck/wrongGoCount.txt'],wrongGoCountMat,'delimiter','\t');
 dlmwrite(['../../compiledResults/upTo' studyPrefix placeholder num2str(numSubs) '/initialCheck/goCount.txt'],goCountMat,'delimiter','\t');
 dlmwrite(['../../compiledResults/upTo' studyPrefix placeholder num2str(numSubs) '/initialCheck/stopCount.txt'],stopCountMat,'delimiter','\t');
 dlmwrite(['../../compiledResults/upTo' studyPrefix placeholder num2str(numSubs) '/initialCheck/NRCount.txt'],NRCountMat,'delimiter','\t');
 dlmwrite(['../../compiledResults/upTo' studyPrefix placeholder num2str(numSubs) '/initialCheck/weirdButtonCount.txt'],weirdButtonCountMat,'delimiter','\t');
-
-dlmwrite(['../../compiledResults/upTo' studyPrefix placeholder num2str(numSubs) '/initialCheck/wrongGoCountNeut.txt'],wrongGoCountMatNeut,'delimiter','\t');
-dlmwrite(['../../compiledResults/upTo' studyPrefix placeholder num2str(numSubs) '/initialCheck/goCountNeut.txt'],goCountMatNeut,'delimiter','\t');
-dlmwrite(['../../compiledResults/upTo' studyPrefix placeholder num2str(numSubs) '/initialCheck/stopCountNeut.txt'],stopCountMatNeut,'delimiter','\t');
-dlmwrite(['../../compiledResults/upTo' studyPrefix placeholder num2str(numSubs) '/initialCheck/NRCountNeut.txt'],NRCountMatNeut,'delimiter','\t');
-dlmwrite(['../../compiledResults/upTo' studyPrefix placeholder num2str(numSubs) '/initialCheck/weirdButtonCountNeut.txt'],weirdButtonCountMatNeut,'delimiter','\t');
 
